@@ -31,9 +31,35 @@ Plugin 'haishanh/night-owl.vim'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'thosakwe/vim-flutter'
 Plugin 'dense-analysis/ale'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'elzr/vim-json'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ekalinin/dockerfile.vim'
+Plugin 'stanangeloff/php.vim'
+Plugin 'rayburgemeestre/phpfolding.vim'
+Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'chrisbra/csv.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'vim-scripts/c.vim'
+Plugin 'wting/rust.vim'
+Plugin 'jparise/vim-graphql'
+Plugin 'chr4/nginx.vim'
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'dsawardekar/wordpress.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tomasr/molokai'
+Plugin 'janko-m/vim-test'
+Plugin 'junegunn/gv.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'jpalardy/vim-slime'
+Plugin 'hanschen/vim-ipython-cell'
+Plugin 'luochen1990/rainbow'
+Plugin 'sickill/vim-monokai'
 "
-"Bundle 'Valloric/YouCompleteMe'
-
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -87,9 +113,6 @@ au BufNewFile,BufRead *.php
 " Specify that you're using UTF8
 set encoding=utf-8
 
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 "python with virtualenv support
 "py << EOF
 "import os
@@ -115,6 +138,7 @@ endif
 "" enable theme
 syntax enable
 " colorscheme night-owl
+colorscheme monokai
 
 """
 "if has("gui_running")
@@ -148,4 +172,35 @@ au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | 
 let NERDTreeShowHidden=1
 
 set backspace=indent,eol,start  " more powerful backspacing
+
+" monokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+" prettier bindings
+packloadall
+
+" REPL - (Read Eval Print Loop)
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+" let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
+" fix paste issues in ipython
+let g:slime_python_ipython = 1
+
+" always send text to the top-right pane in the current tmux tab without asking
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
+
+" Rainbow config
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
