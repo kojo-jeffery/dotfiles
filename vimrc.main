@@ -59,6 +59,8 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'hanschen/vim-ipython-cell'
 Plugin 'luochen1990/rainbow'
 Plugin 'sickill/vim-monokai'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
 "
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -89,9 +91,9 @@ nnoremap <space> za
 
 " Python indentation
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ softtabstop=4
-    \  shiftwidth=4
+    \ set tabstop=2
+    \ softtabstop=2
+    \  shiftwidth=2
     \ textwidth=79
     \ expandtab
     \ autoindent
@@ -204,3 +206,14 @@ let g:slime_dont_ask_default = 1
 " Rainbow config
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
+" Git gutter
+let g:gitgutter_terminal_reports_focus=0
+
+filetype plugin indent on
+" On pressing tab, insert 2 spaces
+set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
