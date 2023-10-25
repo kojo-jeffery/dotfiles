@@ -61,6 +61,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'sickill/vim-monokai'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
+Plugin 'fatih/vim-go'
 "
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -143,15 +144,15 @@ syntax enable
 colorscheme monokai
 
 """
-"if has("gui_running")
-"    set background=dark
-"    colorscheme material
-"else
-"    colorscheme onedark
-"endif
+if has("gui_running")
+    set background=dark
+    colorscheme material
+else
+   colorscheme onedark
+endif
 
 " To enable color switching
-" call togglebg#map("<F5>")
+call togglebg#map("<F5>")
 
 " Ignore .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -192,7 +193,7 @@ packloadall
 " REPL - (Read Eval Print Loop)
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
-" let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 " fix paste issues in ipython
 let g:slime_python_ipython = 1
