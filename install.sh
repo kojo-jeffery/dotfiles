@@ -208,7 +208,7 @@ init()
         printf "No packages found!\n"
       fi
     else
-      printf "${i^^} already installed \n"
+      printf "$i already installed \n"
     fi
   done
 
