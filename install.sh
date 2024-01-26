@@ -113,7 +113,7 @@ install_redis_server()
   echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
 
   sudo apt-get update
-  sudo apt-get install redis
+  sudo apt-get install redis -y
 
   printf '\n\nRedis installed successfully\n\n'
   sleep 3
@@ -217,6 +217,12 @@ init()
   run_cleanup
 
   printf '\n\nHappy Coding!\n\n'
+  sleep 1
+
+  printf '\n\nSwitching to fish-shell...\n\n'
+  sleep 1
+  clear
+  fish
 }
 
 # script starter
