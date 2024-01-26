@@ -176,31 +176,31 @@ init()
   for i in $PACKAGES
     do
     if ! which $i > /dev/null; then
-      if [ "$i" == 'php' ]; then
+      if [ "$i" = 'php' ]; then
         # PHP
         printf 'PHP 8.2 does not seem to be installed...\n'
         install_php_8_2
-      elif [ "$i" == 'composer' ]; then
+      elif [ "$i" = 'composer' ]; then
         # Composer
         printf '\nComposer does not seem to be installed...\n'
         install_php_composer
-      elif [ "$i" == 'node' ]; then
+      elif [ "$i" = 'node' ]; then
         # NodeJs
         printf '\nNodeJs does not seem to be installed...\n'
         install_node
-      elif [ "$i" == 'openvpn3' ]; then
+      elif [ "$i" = 'openvpn3' ]; then
         # openvpn3
         printf '\nOpenVPN3 does not seem to be installed...\n'
         install_openvpn
-      elif [ "$i" == 'gcloud' ]; then
+      elif [ "$i" = 'gcloud' ]; then
         # gcloud
         printf '\nGoogle CLI does not seem to be installed...\n'
         install_gcloud
-      elif [ "$i" == 'starship' ]; then
+      elif [ "$i" = 'starship' ]; then
         # starship
         printf '\nStarship does not seem to be installed...\n'
         install_starship
-      elif [ "$i" == 'redis-server' ]; then
+      elif [ "$i" = 'redis-server' ]; then
         # redis-server 
         printf '\nRedis does not seem to be installed...\n'
         install_redis_server
@@ -216,7 +216,7 @@ init()
   run_autoremove
   run_cleanup
 
-  printf '\n\nHappy Coding!\n\'
+  printf '\n\nHappy Coding!\n\n'
 }
 
 # script starter
