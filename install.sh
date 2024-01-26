@@ -88,7 +88,7 @@ install_gcloud()
 {
   printf "Installing Google CLI...\n"
 
-  curl -sSL https://sdk.cloud.google.com | sh -- --install-dir=/usr/local/bin
+  curl -sSL https://sdk.cloud.google.com | sudo sh
 
   printf '\n\nGoogle CLI installed successfully\n\n'
   sleep 3
