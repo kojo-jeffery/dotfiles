@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # GLOBAL VARIABLES
-PACKAGES="php composer node openvpn3 gcloud starship"
+PACKAGES="php composer node openvpn3 gcloud starship redis-server"
 
 install_php_8_2()
 {
@@ -104,6 +104,21 @@ install_starship()
   sleep 3
 }
 
+install_redis_server()
+{
+  printf "Installing Redis...\n"
+
+  sudo apt install lsb-release curl gpg
+  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+  sudo apt-get update
+  sudo apt-get install redis
+
+  printf '\n\nRedis installed successfully\n\n'
+  sleep 3
+}
+
 run_pre_installs()
 {
   cd ~
@@ -183,6 +198,10 @@ init()
         # starship
         printf '\nStarship does not seem to be installed...\n'
         install_starship
+      elif [ $i == 'redis-server' ]; then
+        # redis-server 
+        printf '\nRedis does not seem to be installed...\n'
+        install_redis_server
       else
         printf "No packages found!\n"
       fi
