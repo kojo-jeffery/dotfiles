@@ -2,6 +2,10 @@
 install:
 	chmod +x install.sh && ./install.sh
 
+## update: [DOCKER] Run update project GIT store
+update:
+	git restore install.sh && git pull && make install
+
 ## help: [LINUX] Command to view help
 help: Makefile
 	@echo
