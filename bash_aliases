@@ -1,0 +1,7 @@
+alias cl="clear"
+alias e-fish="vim ~/.config/fish/config.fish"
+alias e-aliases="vim ~/.bash_aliases"
+alias source-aliases="source ~/.bash_aliases"
+alias apt-update="sudo apt update"
+alias apt-upgrade="sudo apt upgrade"
+alias pkg-install="chmod +x ./install.sh && ./install.sh"
