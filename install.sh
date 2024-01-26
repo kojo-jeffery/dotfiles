@@ -77,7 +77,7 @@ install_openvpn()
   printf "Installing OpenVPN-3...\n"
 
   sudo mkdir -p /etc/apt/keyrings && curl -fsSL https://packages.openvpn.net/packages-repo.gpg | sudo tee /etc/apt/keyrings/openvpn.asc
-  sudo echo "deb [signed-by=/etc/apt/keyrings/openvpn.asc] https://packages.openvpn.net/openvpn3/debian jammy main" | sudo tee /etc/apt/sources.list.d/openvpn-packages.list
+  sudo echo "deb [signed-by=/etc/apt/keyrings/openvpn.asc] https://packages.openvpn.net/openvpn3/debian $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/openvpn-packages.list
   sudo apt-get update && sudo apt-get install openvpn3 -y
 
   printf '\n\nOpenVPN-3 installed successfully\n\n'
