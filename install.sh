@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # GLOBAL VARIABLES
-PACKAGES="php composer node openvpn3 gcloud starship redis-server"
+PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery"
 
 install_php_8_2()
 {
@@ -166,6 +166,19 @@ install_term_apps()
   sleep 3
 }
 
+install_artillery_load_tester()
+{
+  printf "Installing Artillery Load Tester...\n"
+
+  npm install -g artillery@latest
+  npm install -g artillery@canary
+
+  artillery version
+
+  printf '\n\nArtillery Load Tester installed successfully\n\n'
+  sleep 3
+}
+
 init()
 {
   printf '\nInstalling pre-requisites...\n\n'
@@ -192,6 +205,10 @@ init()
         # NodeJs
         printf '\nNodeJs does not seem to be installed...\n'
         install_node
+      elif [ "$i" = 'artillery' ]; then
+        # Artillery Load Tester
+        printf '\nArtillery Load Tester does not seem to be installed...\n'
+        install_artillery_load_tester
       elif [ "$i" = 'openvpn3' ]; then
         # openvpn3
         printf '\nOpenVPN3 does not seem to be installed...\n'
