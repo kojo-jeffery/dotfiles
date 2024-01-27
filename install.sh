@@ -155,8 +155,10 @@ install_term_apps()
   sleep 3
   
   printf '\n\nCopying config files...\n\n'
+  
   sudo rm -rf $HOME/.config/fish
   sudo rm -rf $HOME/.config/neofetch
+  
   cp -r $HOME/dotfiles/fish $HOME/.config/
   cp -r $HOME/dotfiles/neofetch $HOME/.config/
   cp -r $HOME/dotfiles/tmux $HOME/.config/
@@ -170,8 +172,8 @@ install_artillery_load_tester()
 {
   printf "Installing Artillery Load Tester...\n"
 
-  npm install -g artillery@latest
-  npm install -g artillery@canary
+  sudo npm install -g artillery@latest
+  sudo npm install -g artillery@canary
 
   artillery version
 
