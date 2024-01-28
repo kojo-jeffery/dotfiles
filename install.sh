@@ -173,7 +173,6 @@ install_artillery_load_tester()
   printf "Installing Artillery Load Tester...\n"
 
   sudo npm install -g artillery@latest
-  sudo npm install -g artillery@canary
 
   artillery version
 
