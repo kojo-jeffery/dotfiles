@@ -118,6 +118,10 @@ install_redis_server()
 
   sudo apt-get update
   sudo apt-get install redis -y
+  
+  sudo systemctl enable redis-server
+  sudo service redis-server start
+  sudo service redis-server status
 
   printf '\n\nRedis installed successfully\n\n'
   sleep 3
