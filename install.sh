@@ -184,9 +184,22 @@ install_artillery_load_tester()
   sleep 3
 }
 
+update_datetime()
+{
+  printf "Updating to CURRENT_DATETIME...\n"
+
+  sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+
+  date
+
+  printf '\n\nUpdating to CURRENT_DATETIME completed successfully\n\n'
+  sleep 3
+}
+
 init()
 {
   printf '\nInstalling pre-requisites...\n\n'
+  update_datetime
   run_pre_installs
   install_term_apps
 
