@@ -2,7 +2,11 @@
 
 Installer for setting up my dev-containers and configs
 
-# Setup
+### Tested On:
+- Ubuntu 20.04 - LATEST
+- Raspberry Pi 3B+ - LATEST (Raspbian or Ubuntu)
+
+### Setup
 
 * Copy and Run:
   
@@ -10,4 +14,4 @@ Installer for setting up my dev-containers and configs
   git clone https://github.com/kojo-jeffery/dotfiles.git && sudo apt install make && cd dotfiles && make install
   ```
 
-# Enjoy
+Happy Coding!
