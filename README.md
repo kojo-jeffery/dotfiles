@@ -1,6 +1,6 @@
 # Dotfiles
 
-Installer for setting up my dev-containers and configs
+Installer for setting up my dev-containers with configs included - PROGRESSIVE ADDITIONS
 
 ### Tested On:
 - Ubuntu 20.04 - LATEST
