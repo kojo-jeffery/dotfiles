@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # GLOBAL VARIABLES
-PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery"
+PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery terraform"
 
 install_php_8_2()
 {
@@ -196,6 +196,22 @@ update_datetime()
   sleep 3
 }
 
+install_terraform()
+{
+  printf "Installing Terraform...\n"
+
+  sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+  curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/hashicorp.gpg --import
+  sudo chmod 644 /etc/apt/trusted.gpg.d/hashicorp.gpg
+  echo "deb [signed-by=/etc/apt/trusted.gpg.d/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  sudo apt update && sudo apt install terraform
+
+  terraform --version
+
+  printf '\n\nTerraform installed successfully\n\n'
+  sleep 3
+}
+
 init()
 {
   printf '\nInstalling pre-requisites...\n\n'
@@ -243,6 +259,10 @@ init()
         # redis-server 
         printf '\nRedis does not seem to be installed...\n'
         install_redis_server
+      elif [ "$i" = 'terraform' ]; then
+        # terraform
+        printf '\nTerraform does not seem to be installed...\n'
+        install_terraform
       else
         printf "No packages found!\n"
       fi
