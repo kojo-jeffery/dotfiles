@@ -4,6 +4,6 @@ alias e-aliases="vim ~/.bash_aliases"
 alias source-aliases="source ~/.bash_aliases"
 alias apt-update="sudo apt update"
 alias apt-upgrade="sudo apt upgrade"
-alias gcloud-creds-export="export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcloud.json"
+alias gcloud-creds-export="echo $GOOGLE_APPLICATION_CREDENTIALS" # remove in future iterations
 alias sh-support="ssh kojo@mac-support-dev"
 alias git-unshallow="git fetch --unshallow && git fetch --all && git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git fetch origin"
