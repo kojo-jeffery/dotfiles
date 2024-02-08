@@ -7,3 +7,4 @@ alias apt-upgrade="sudo apt upgrade"
 alias gcloud-creds-export="echo $GOOGLE_APPLICATION_CREDENTIALS" # remove in future iterations
 alias sh-support="ssh kojo@mac-support-dev"
 alias git-unshallow="git fetch --unshallow && git fetch --all && git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git fetch origin"
+alias multipass-cache-clear="sudo launchctl unload /Library/LaunchDaemons/com.canonical.multipassd.plist && sudo rm -rf /var/root/Library/Caches/multipassd/vault && sudo launchctl load /Library/LaunchDaemons/com.canonical.multipassd.plist"
