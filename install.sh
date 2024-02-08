@@ -256,10 +256,6 @@ init()
         # NodeJs
         printf '\nNodeJs does not seem to be installed...\n'
         install_node
-      elif [ "$i" = 'artillery' ]; then
-        # Artillery Load Tester
-        printf '\nArtillery Load Tester does not seem to be installed...\n'
-        install_artillery_load_tester
       elif [ "$i" = 'openvpn3' ]; then
         # openvpn3
         printf '\nOpenVPN3 does not seem to be installed...\n'
