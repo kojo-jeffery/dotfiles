@@ -216,12 +216,12 @@ install_neovim()
 {
   printf "Installing Neovim Latests...\n"
 
-  sudo apt-get install software-properties-common -y
-  sudo apt-get install python-dev-is-python3 python-pip python3-dev -y
+  cd ~
+  sudo apt-get install ninja-build gettext cmake unzip curl
   
-  sudo add-apt-repository ppa:neovim-ppa/stable
-  sudo apt-get update
-  sudo apt-get install neovim -y
+  git clone https://github.com/neovim/neovim && git checkout stable
+  cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+  cd ~
 
   nvim --version
 
