@@ -216,12 +216,12 @@ install_neovim()
 {
   printf "Installing Neovim Latests...\n"
 
-  sudo apt-get install software-properties-common
-  sudo apt-get install python-dev-is-python3 python-pip python3-dev
+  sudo apt-get install software-properties-common -y
+  sudo apt-get install python-dev-is-python3 python-pip python3-dev -y
   
   sudo add-apt-repository ppa:neovim-ppa/stable
   sudo apt-get update
-  sudo apt-get install neovim
+  sudo apt-get install neovim -y
 
   nvim --version
 
