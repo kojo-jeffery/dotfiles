@@ -282,7 +282,7 @@ init()
         # terraform
         printf '\nTerraform does not seem to be installed...\n'
         install_terraform
-      elif [ "$i" = 'neovim' ]; then
+      elif [ "$i" = 'nvim' ]; then
         # neovim
         printf '\nNeovim Latest does not seem to be installed...\n'
         install_neovim
