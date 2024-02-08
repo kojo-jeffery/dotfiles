@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # GLOBAL VARIABLES
-PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery terraform nvim"
+PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery terraform"
 
 install_php_8_2()
 {
@@ -280,10 +280,6 @@ init()
         # terraform
         printf '\nTerraform does not seem to be installed...\n'
         install_terraform
-      elif [ "$i" = 'nvim' ]; then
-        # neovim
-        printf '\nNeovim Latest does not seem to be installed...\n'
-        install_neovim
       else
         printf "No packages found!\n"
       fi
