@@ -163,10 +163,10 @@ install_term_apps()
   sudo rm -rf $HOME/.config/fish
   sudo rm -rf $HOME/.config/neofetch
   
-  cp -r $HOME/dotfiles/fish $HOME/.config/
-  cp -r $HOME/dotfiles/neofetch $HOME/.config/
-  cp -r $HOME/dotfiles/tmux $HOME/.config/
-  cp $HOME/dotfiles/.bash_aliases $HOME/
+  cp -r $(pwd)/dotfiles/fish $HOME/.config/
+  cp -r $(pwd)/dotfiles/neofetch $HOME/.config/
+  cp -r $(pwd)/dotfiles/tmux $HOME/.config/
+  cp $(pwd)/dotfiles/.bash_aliases $HOME/
 
   printf '\n\nConfig files copied successfully\n\n'
   sleep 3
