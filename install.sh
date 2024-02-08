@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 # GLOBAL VARIABLES
-PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery terraform"
+PACKAGES="php composer node openvpn3 gcloud starship redis-server artillery terraform nvim"
 
 install_php_8_2()
 {
@@ -153,7 +153,7 @@ install_term_apps()
 {
   printf "Installing Terminal Apps...\n"
 
-  sudo apt --yes install fish tmux neofetch vim neovim fzf ripgrep fd-find jq
+  sudo apt --yes install fish tmux neofetch vim fzf ripgrep fd-find jq
   
   printf '\n\nTerminal Apps installed successfully\n\n'
   sleep 3
@@ -212,6 +212,25 @@ install_terraform()
   sleep 3
 }
 
+install_neovim()
+{
+  printf "Installing Neovim Latests...\n"
+
+  sudo apt-get install software-properties-common
+  sudo apt-get install python-software-properties
+  
+  sudo add-apt-repository ppa:neovim-ppa/stable
+  sudo apt-get update
+  sudo apt-get install neovim
+
+  sudo apt-get install python-dev python-pip python3-dev python3-pip
+
+  nvim --version
+
+  printf '\n\nNeovim Latests installed successfully\n\n'
+  sleep 3
+}
+
 init()
 {
   printf '\nInstalling pre-requisites...\n\n'
@@ -263,6 +282,10 @@ init()
         # terraform
         printf '\nTerraform does not seem to be installed...\n'
         install_terraform
+      elif [ "$i" = 'neovim' ]; then
+        # neovim
+        printf '\nNeovim Latest does not seem to be installed...\n'
+        install_neovim
       else
         printf "No packages found!\n"
       fi
